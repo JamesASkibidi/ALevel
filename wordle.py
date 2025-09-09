@@ -10,7 +10,7 @@ correct_position = []
 not_present = []
 word_letters = ''
 
-def letter_checker(word , guess, correct):
+def letter_checker(word , guess, correct , word_letters):
     
         
     for i in range (5):
@@ -53,20 +53,22 @@ def letter_checker(word , guess, correct):
     
         
     print("")
-    return correct
+    return correct and word_letters
         
         
         
 correct = False
 guessno = 0
-# word = requests.get(f"https://random-word-api.vercel.app/api?words=1&length=5")
+word = requests.get(f"https://random-word-api.vercel.app/api?words=1&length=5")
 
-# if word.status_code == 200:
-#     word = str(*word.json())
+if word.status_code == 200:
+    word = str(*word.json())
     
 # print(word)
 
-word = 'apple'
+# word = 'apple'
+
+word_letters = word
 
 while guessno < 6 and correct == False:
     
@@ -79,7 +81,7 @@ while guessno < 6 and correct == False:
         if len(guess) != 5:
             print('word is invalid')
             
-    word_letters = word
+   
     
     guessno = guessno + 1
     
@@ -93,7 +95,7 @@ while guessno < 6 and correct == False:
         break
         
     
-    letter_checker(word , guess, correct)
+    letter_checker(word , guess, correct , word_letters)
 
 if correct == True:
     
