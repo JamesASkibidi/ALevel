@@ -22,16 +22,16 @@ def letter_checker(word , guess, correct , word_letters):
             print(Fore.GREEN , guess[i], end = "")
             if guess[i] not in correct_position:
                 correct_position.append(guess[i])
-            elif guess[i] in letters:
-                letters.remove(guess[i])
-                word_letters[i] = '1'
+            elif guess[i] in word_letters:
+                # letters.remove(guess[i])
+                word_letters = word_letters[:i] + '1' + word_letters[i+1:]
             elif guess[i] in incorrect_position:
                 incorrect_position.remove(guess[i])
                 
                 
         elif guess[i] in word and guess[i] != word[i]:
             #letter in word
-            if guess[i] not in correct_position and guess[i] == word_letters[i]:
+            if guess[i] not in correct_position or guess[i] in word_letters:
                 print(Fore.YELLOW , guess[i], end = "")
             else:
                 print(Fore.WHITE , guess[i], end = "")
@@ -53,20 +53,22 @@ def letter_checker(word , guess, correct , word_letters):
     
         
     print("")
-    return correct and word_letters
+    return  correct and word_letters
         
+def word_generator():
+    word = requests.get(f"https://random-word-api.vercel.app/api?words=1&length=5")
+
+    if word.status_code == 200:
+        word = str(*word.json())
+        
+    return word
+    
         
         
 correct = False
 guessno = 0
-word = requests.get(f"https://random-word-api.vercel.app/api?words=1&length=5")
 
-if word.status_code == 200:
-    word = str(*word.json())
-    
-# print(word)
-
-# word = 'apple'
+word = word_generator()
 
 word_letters = word
 
@@ -96,6 +98,7 @@ while guessno < 6 and correct == False:
         
     
     letter_checker(word , guess, correct , word_letters)
+
 
 if correct == True:
     
