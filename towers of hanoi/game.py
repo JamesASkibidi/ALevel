@@ -61,9 +61,11 @@ def processing():
         time.sleep(0.25)
         os.system('cls' if os.name == 'nt' else 'clear')
 
-diskNo= 5
+diskNo= int(input('Enter a number of disks: '))
 
-towerNo = 3
+towerNo = int(input('Enter a number of towers: ')) 
+
+os.system('cls' if os.name == 'nt' else 'clear')
 
 towers = []
 
@@ -86,6 +88,7 @@ while win == False:
             valid = True
         else:
             print('Invalid Input')
+            time.sleep(1)
 
 
     print()
@@ -94,6 +97,7 @@ while win == False:
 
     if disk == -1:
         print('Invalid Move')
+        time.sleep(1)
     
     else:
 
@@ -105,6 +109,7 @@ while win == False:
                 valid = True
             else:
                 print('Invalid Input')
+                time.sleep(1)
 
 
         print()
@@ -115,6 +120,7 @@ while win == False:
             towerpush = towerpop
             dropped = push_disk(towerpush , disk)
             print('Invalid Move')
+            time.sleep(1)
 
     processing()
 
