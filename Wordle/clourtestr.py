@@ -13,3 +13,6 @@ word = 'apple'
 word = word[:0] + 'z' + word[1:]
 
 print(word)
+
+for i in range (2,10):
+    print(i)

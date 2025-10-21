@@ -14,7 +14,6 @@ def create_towers(towerNo , diskNo, tops):
         towers[0][i] = (diskNo - i)
     return tops
 
-
 def display_towers():
     for i in range(diskNo-1, -1, -1): # found a way of printing in reverse order
         for j in range(towerNo):
@@ -42,12 +41,17 @@ def push_disk(towerpush, disk):
 
 def tower_checker():
     global diskNo , towerNo, tops
-    for i in range (towerNo):
-        if tops[i+1] == diskNo:
+    for i in range (0, towerNo):
+        if tops[i]+1 == diskNo:
+            print('win')
             return True
 
+
         else:
-            return False
+            print('No')
+            if towerNo == i:
+                return False
+        
 
 def processing():
     for i in range (2):
@@ -129,7 +133,6 @@ while win == False:
     win = tower_checker()
     if win == True:
         break
-
 
 print('You won!')
 
