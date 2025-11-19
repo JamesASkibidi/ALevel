@@ -1,0 +1,67 @@
+
+
+#up {
+    color:green;
+    
+}
+
+#mainPara {
+    font-family:Comic Sans MS
+
+}
+
+
+.para{
+    color:pink;
+    font-size: 20px;
+}
+
+
+#title{
+    text-align: center;
+    background-color: aquamarine;
+    width:500px;
+    padding:10px;
+    background-position: top center;
+    margin:auto;
+    border-radius:10px;
+    font-family:Comic Sans MS
+}
+
+#div1{
+    background-color: beige;
+}
+
+img{
+    width: 500px;
+}
+
+html{
+    background-color: grey;
+}
+
+#fontchange{
+    background-image:url("Assets/boris.jpg");
+    background-position:center;
+    size: 100%;
+    width: 50%;
+    height:500px;
+    display: block;
+    margin: auto;
+    box-shadow: 0 0 100px greenyellow;
+
+
+
+}
+
+#new-font{
+    font-family: Comic Sans MS;
+
+}
+
+.newfont {
+    font-family: Arial;
+    text-align: center;
+    
+    font-size: 5em;
+}
