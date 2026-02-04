@@ -1,7 +1,7 @@
 
 
-#up {
-    color:green;
+#header {
+    color:black;
     
 }
 
@@ -19,7 +19,7 @@
 
 #title{
     text-align: center;
-    background-color: aquamarine;
+    background-color: rgb(230, 230, 230);
     width:500px;
     padding:10px;
     background-position: top center;
@@ -28,8 +28,45 @@
     font-family:Comic Sans MS
 }
 
+#center_box{
+   
+    background-color: rgb(165, 165, 165);
+    width:100px;
+    padding:10px;
+    background-position: center ;
+    margin:auto;
+    border-radius:10px;
+    font-family:Comic Sans MS
+
+}
+
+#left_box{
+   
+    background-color: rgb(165, 165, 165);
+    width:100px;
+    padding:10px;
+    background-position: left ;
+    margin:auto;
+    border-radius:10px;
+    font-family:Comic Sans MS
+
+}
+
+#right_box{
+   
+    background-color: rgb(165, 165, 165);
+    width:100px;
+    /* padding:10px; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    font-family:Comic Sans MS
+
+}
+
+
 #div1{
-    background-color: beige;
+    background-color: blueviolet;
 }
 
 img{
@@ -37,7 +74,7 @@ img{
 }
 
 html{
-    background-color: grey;
+    background-color: rgb(69, 69, 145);
 }
 
 #fontchange{
