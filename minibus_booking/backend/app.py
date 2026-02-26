@@ -10,7 +10,7 @@ import sqlite3
 
 app = Flask(__name__)
 
-DATABSE = "minibus_booking/backend/buss_booking.db"
+DATABSE = "minibus_booking/backend/bus_booking.db"
 
 
 def db_connect():
@@ -59,27 +59,38 @@ def add_user():
     last_name = request.form["last_name"]
     email = request.form["email"]
     cx = db_connect()
-    cx.execute("INSERT into user (first_name, last_name , email) VALUES ( ?, ? , ?)",
+    cx.execute("INSERT into users (first_name, last_name , email) VALUES ( ?, ? , ?)",
                (first_name, last_name , email))
     
     cx.commit()
     cx.close()
     return redirect("/")
 
-
-def add_buss():
+@app.route("/add_bus" , methods = ["POST"])
+def add_bus():
     model = request.form["model"]
     registration = request.form["registration"]
     seating = request.form["seating"]
     cx = db_connect()
-    cx.execute("INSERT into busses (model , registration , seating) VALUES ( ?, ? , ?)",
-               (model , registration , seating))
+    cx.execute("INSERT into busses (model, registration, seating) VALUES ( ? , ? , ?)",
+               (model, registration, seating))
     
     cx.commit()
     cx.close()
     return redirect("/")
 
+@app.route("/create_booking" , methods = ["POST"])
 def create_booking():
-    pass
+    u_id = request.form["u_id"]
+    bu_id = request.form["bu_id"]
+    date = request.form["date"]
+    cx = db_connect()
+    cx.execute("INSERT into booking (u_id, bu_id, date) VALUES ( ?, ? , ?)",
+               (u_id , bu_id , date))
+    
+    cx.commit()
+    cx.close()
+    return redirect("/")
+    
 
-index()
+app.run()
