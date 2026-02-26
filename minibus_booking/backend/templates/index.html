@@ -1,0 +1,79 @@
+<!-- frontend webpage-->
+<html>
+<head>
+    <title>Minibus Booking</title>
+</head>
+
+<body>
+<h1> Booking System</h1>    
+
+
+
+<h2>Add New User</h2>
+<form 
+        method = "post"
+        
+        action = "/add_user" 
+        >
+
+
+    first Name: <input type = "text" name = "first_name" required>
+    Last Name: <input type = "text" name = "last_name" required>
+    Email: <input type = "email" name = "email" required>
+
+    <button type = "submit">Add User</button>
+    
+</form>
+
+
+<h2>Add New Bus</h2>
+<form  
+        method = "post"
+        
+        action = "/add_bus"
+        >
+
+    Model: <input type = "text" name = "Model" required>
+    Registration: <input type = "text" name = "registration" required>
+    Seating: <input type = "number" name = "seating" required>
+
+    <button type = "submit">Add Bus</button>
+    
+</form>
+
+<h2>Create New Booking</h2>
+<form 
+        method = "post"
+        
+        action = "/create_booking" 
+        >
+
+    user:
+    <select name="u_id" required>
+
+        {% for user in users %}
+            <option value = "{{user.u_id}}">{{user.first_name}} {{user.last_name}}</option> 
+        {% endfor %}
+    </select>    
+    bus:
+    <select name="bu_id" required>
+
+        {% for bus in busses %}
+            <option value = "{{busses.bu_id}}"> {{busses.model}} {{busses.seating}} </option> 
+        {% endfor %}
+    </select>
+
+
+    booking_date: <input type = "date" name = "date" required>
+    <button type = "submit">Create Booking</button>
+        
+        
+
+    
+
+    
+</form>
+    
+</body>
+
+</html>

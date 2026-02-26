@@ -1,6 +1,6 @@
 import sqlite3
 
-cx = sqlite3.connect("minibus_booking/backend/buss_booking.db")
+cx = sqlite3.connect("minibus_booking/backend/bus_booking.db")
 
 cu = cx.cursor()
 
