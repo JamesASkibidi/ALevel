@@ -49,7 +49,7 @@ def index():
 
     #sends data to index.html
 
-    return render_template("minibus_booking/frontend/templates/index.html" , users = users , busses = busses , bookings = bookings)
+    return render_template("index.html" , users = users , busses = busses , bookings = bookings)
 
 
 @app.route("/add_user" , methods = ["POST"])

@@ -33,7 +33,7 @@
         action = "/add_bus"
         >
 
-    Model: <input type = "text" name = "Model" required>
+    Model: <input type = "text" name = "model" required>
     Registration: <input type = "text" name = "registration" required>
     Seating: <input type = "number" name = "seating" required>
 
@@ -59,7 +59,7 @@
     <select name="bu_id" required>
 
         {% for bus in busses %}
-            <option value = "{{busses.bu_id}}"> {{busses.model}} {{busses.seating}} </option> 
+            <option value = "{{bus.bu_id}}"> {{bus.model}} {{bus.seating}} </option> 
         {% endfor %}
     </select>
 
@@ -73,6 +73,45 @@
 
     
 </form>
+
+<h2>All Users</h2>
+
+<table border="1">
+
+
+<tr>
+
+<th>First Name</th>
+
+<th>Surname</th>
+
+<th>Email</th>
+
+<th>Actions</th>
+
+</tr>
+
+{% for user in users %}
+
+<tr>
+
+<td>{{ user.first_name }}</td>
+
+<td>{{ user.surname }}</td>
+
+<td>{{ user.email }}</td>
+
+<td><form action="/delete_user/{{ user.user_id }}" method="post">
+
+<button type="submit">Delete</button></td>
+
+</form>
+
+</tr>
+
+{% endfor %}
+
+</table>
     
 </body>
 
