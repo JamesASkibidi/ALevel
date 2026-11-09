@@ -1,0 +1,12 @@
+#0 data must be sorted
+
+#1 find midpoint of list
+
+#2 compare midpoint to target value
+
+#3  if midpoint is larger: discount values from midpoint to end 
+    if midpoint is smaller: discount values from beginning to midpoint
+    else the item is found - return true and location
+
+4# repeat on new list until midpoint == target value
+5# if all items are discounted - return false and 'item not found'
